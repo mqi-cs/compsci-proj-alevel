@@ -1,20 +1,30 @@
-import sqlite3  
+import sqlite3
 
-conn = sqlite3.connect('wordle.db')     # variable = lang.func('name of databse') #connects to db #db creation
+# Connect to the database
+conn = sqlite3.connect('wordle.db')
 
-#db creation above
+# Create a cursor
+c = conn.cursor()
 
-#table creation below
+# Create the table if it doesn't exist
+c.execute("""
+CREATE TABLE IF NOT EXISTS wordle_list (
+    word TEXT
+)
+""")
 
-c = conn.cursor                            # cursor variable = connectoing and making cursor vairbale, # create a cursor
+# Open the text file and read its content
+with open('words_alpha.txt', 'r') as file:
+    words = file.readlines()
 
-c.execute(""" CREATE TABLE wordle_list  (               
+# Insert each word into the database
+for word in words:
+    word = word.strip()  # Remove any surrounding whitespace
+    c.execute("INSERT INTO wordle_list (word) VALUES (?)", (word,))
 
-        word_list test                                   
-""")                               #cursor command   #multiple ' for lines readibility , #column name and datatype
+# Commit the transaction
+conn.commit()
 
-
-conn.commit()            # commit the command
-
-conn.close()     #not neccesary but best practice,  # close ur connection
+# Close the connection
+conn.close()
 
