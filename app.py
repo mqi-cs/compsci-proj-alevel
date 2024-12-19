@@ -8,6 +8,33 @@ win = pygame.display.set_mode((500, 500))
 
 pygame.display.set_caption("WORDLE!!!")   #change window name
 
+
+
+colummn_lenght= 6   #wordle dimesnions for later use
+row_lenght= 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 run = True
 
 while run:
@@ -18,3 +45,4 @@ while run:
             run = False  # Ends the game loop
 
 pygame.quit()  # If we exit the loop this will execute and close our game #
+
