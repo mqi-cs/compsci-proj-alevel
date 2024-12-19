@@ -17,4 +17,4 @@ while run:
         if event.type == pygame.QUIT: # Checks if the red button in the corner of the window is clicked
             run = False  # Ends the game loop
 
-pygame.quit()  # If we exit the loop this will execute and close our game
+pygame.quit()  # If we exit the loop this will execute and close our game #
