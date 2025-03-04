@@ -11,7 +11,7 @@ pygame.display.set_caption("WORDLE!!!")   #change window name
 
 
 colummn_lenght= 6   #wordle dimesnions for later use
-row_lenght= 5          #k
+row_lenght= 5          
 
 
 
